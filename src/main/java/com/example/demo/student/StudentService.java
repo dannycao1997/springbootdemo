@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import java.time.LocalDate;
 import java.time.Month;
 import java.util.List;
+import java.util.Optional;
 
 @Service // annotation might to be for service class
 public class StudentService {
@@ -21,5 +22,15 @@ public class StudentService {
 
     public List<Student> getStudents() {
         return studentRepository.findAll(); // CLASS CONVERTED TO JSON FORMAT array localhost8080
+    }
+
+
+    public void addNewStudent(Student student) {
+        Optional<Student> studentOptional= studentRepository
+                .findStudentByEmail(student.getEmail());
+        if (studentOptional.isPresent()) {
+            throw new IllegalStateException("Email already in use");
+        }
+        System.out.println(student);
     }
 }
