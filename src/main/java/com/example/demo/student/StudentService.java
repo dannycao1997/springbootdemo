@@ -31,6 +31,6 @@ public class StudentService {
         if (studentOptional.isPresent()) {
             throw new IllegalStateException("Email already in use");
         }
-        System.out.println(student);
+        studentRepository.save(student);
     }
 }
