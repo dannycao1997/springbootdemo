@@ -2,6 +2,7 @@ package com.example.demo.student;
 
 import java.time.LocalDate;
 
+// CLASS CALLED STUDENTS
 public class Student {
     private Long id;
     private String name;
@@ -28,7 +29,6 @@ public class Student {
         this.age = age;
     }
 
-    //
     // GENERATED GETTERS AND SETTERS
     public Long getId() {
         return id;
